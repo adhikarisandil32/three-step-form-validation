@@ -1,0 +1,381 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap");
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Purpose Specific Classes */
+.padding-bottom-half-rem {
+  padding-bottom: 0.5rem;
+}
+
+.error {
+  font-size: 0.75rem;
+  color: red;
+}
+
+.smaller-font-size {
+  font-size: 0.75rem;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+.flex {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Name Specific Classes */
+main {
+  margin: 0 auto;
+  width: min(1120px, 100%);
+}
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.header-logo-container > img {
+  height: 100px;
+  width: 100px;
+  object-fit: contain;
+  display: block;
+}
+.header-logo-container > p {
+  font-size: 2rem;
+  font-weight: 900;
+  padding: 0 0.5rem;
+}
+
+.college-info-container {
+  font-size: 0.8rem;
+  text-align: right;
+  padding: 0 0.5rem;
+}
+.college-info-container > p:first-child {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.h2-student-registration-form {
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+.form-element {
+  display: flex;
+  overflow: hidden;
+}
+
+.form-element > .form-immediate-child {
+  min-width: 100%;
+}
+
+/* First Page of the Form */
+.basic-information-section > .title {
+  background-color: hsl(0, 0%, 90%);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  cursor: pointer;
+}
+.basic-information-section > .title > p {
+  font-weight: bold;
+}
+
+.basic-information-form {
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.basic-information-form > .full-name > div {
+  display: flex;
+  gap: 0.5rem;
+}
+.basic-information-form > .full-name > div > input {
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid black;
+  display: block;
+  width: 100%;
+}
+.basic-information-form > .full-name > div > input:hover {
+  outline: auto;
+}
+
+.basic-information-form > .gender {
+  display: flex;
+  gap: 1rem;
+}
+.basic-information-form > .gender > p.error {
+  align-self: flex-end;
+}
+.basic-information-form > .gender > label {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.basic-information-form > .birth-date > div > input[type="date"] {
+  margin-right: 1rem;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid black;
+}
+.basic-information-form > .birth-date > div > input[type="date"]:hover {
+  outline: auto;
+}
+.basic-information-form > .birth-date > div > input[type="text"] {
+  font-size: 1rem;
+  color: black;
+  width: 3rem;
+  padding: 0.5rem;
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 0.25rem;
+  text-align: center;
+}
+
+.basic-information-form > .address > div {
+  display: flex;
+  gap: 0.5rem;
+}
+.basic-information-form > .address > div > input {
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid black;
+  display: block;
+  width: 100%;
+}
+.basic-information-form > .address > div > input:hover {
+  outline: auto;
+}
+
+.basic-information-form > .language > div > label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+}
+
+.basic-information-form > .about-yourself > textarea {
+  resize: vertical;
+  min-height: 4rem;
+  width: 100%;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid black;
+}
+.basic-information-form > .about-yourself > textarea:hover {
+  outline: auto;
+}
+
+/* Second Page of the Form */
+.additional-information-section > .title {
+  background-color: hsl(0, 0%, 90%);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  cursor: pointer;
+}
+.additional-information-section > .title > p {
+  font-weight: bold;
+}
+
+.additional-information-form {
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.additional-information-form > .faculty > div {
+  display: flex;
+}
+.additional-information-form > .faculty > div > div {
+  flex-grow: 1;
+}
+.additional-information-form > .faculty > div > div > label {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+  width: fit-content;
+}
+
+.additional-information-form > .qualification > div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.additional-information-form > .qualification > div > label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.additional-information-form > .experience > div > input {
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid black;
+}
+.additional-information-form > .experience > div > input:hover {
+  outline: auto;
+}
+
+.additional-information-form > .why-hire > div > textarea {
+  resize: vertical;
+  min-height: 4rem;
+  width: 100%;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid black;
+}
+.additional-information-form > .why-hire > div > textarea:hover {
+  outline: auto;
+}
+
+/* Third Page of the Form */
+.verify-information-section > .title {
+  background-color: hsl(0, 0%, 90%);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  cursor: pointer;
+}
+.verify-information-section > .title > p {
+  font-weight: bold;
+}
+
+.information-to-verify {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.information-to-verify > div {
+  display: flex;
+}
+.information-to-verify > div > span {
+  display: block;
+}
+
+.information-to-verify > div > span:first-child {
+  width: 200px;
+}
+.information-to-verify > div > span:nth-child(2) {
+  width: calc(100% - 200px);
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+.pagination > div {
+  height: 0.5rem;
+  width: 2rem;
+  border: 1px solid black;
+  border-radius: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pagination > div.active {
+  background-color: hsl(239, 100%, 10%);
+}
+
+/* Buttons */
+.submit-button-container {
+  text-align: center;
+  margin: 1rem 0;
+}
+.submit-button-container > button {
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  border: 2px solid black;
+  font-weight: bold;
+}
+.submit-button-container > button:hover {
+  background-color: hsl(0, 0%, 80%);
+}
+.buttons-container {
+  margin-bottom: 1rem;
+  text-align: center;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+.buttons-container > button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 2px solid black;
+  cursor: pointer;
+  min-width: 100px;
+  font-weight: bold;
+}
+.buttons-container > button:hover {
+  background-color: hsl(0, 0%, 80%);
+}
+
+/* Responsive */
+@media screen and (max-width: 748px) {
+  .basic-information-form > .full-name > div {
+    gap: 0.5rem;
+    flex-direction: column;
+  }
+
+  .basic-information-form > .address > div {
+    gap: 0.5rem;
+    flex-direction: column;
+  }
+  .basic-information-form > .faculty > div {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 548px) {
+  .form-header {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .college-info-container {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .birth-date > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

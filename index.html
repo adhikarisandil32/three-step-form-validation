@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript" src="script.js" defer></script>
+    <title>MultiStep Form</title>
+  </head>
+  <body>
+    <main>
+      <header class="form-header">
+        <div class="header-logo-container">
+          <img src="images/college_logo.png" alt="College Logo" />
+          <p>XYZ<br />College</p>
+        </div>
+        <div class="college-info-container">
+          <p>XYZ College</p>
+          <p>Random Address, Kathmandu, Nepal</p>
+          <p>Email: info@xyzcollege.edu.np</p>
+          <p>Website: <a href="#">www.xyzcollege.edu.np</a></p>
+          <p>Tel: 01-1234567, 01-7654321</p>
+        </div>
+      </header>
+      <h2 class="h2-student-registration-form">TEACHER'S VACANCY FORM</h2>
+      <form action="" class="form-element" id="form-all-pages">
+        <!-- First Page of Form -->
+        <section class="form-immediate-child basic-information-section">
+          <div class="title" id="basic-information-section-button">
+            <p>BASIC INFORMATION</p>
+            <p class="smaller-font-size">fields with * are mandatory</p>
+          </div>
+          <div class="basic-information-form">
+            <div class="full-name">
+              <p class="padding-bottom-half-rem">Full Name*</p>
+              <p class="first-name-error error" id="first-name-error"></p>
+              <p class="middle-name-error error" id="middle-name-error"></p>
+              <p class="last-name-error error" id="last-name-error"></p>
+              <div>
+                <input type="text" placeholder="First Name*" id="first-name" />
+                <input type="text" placeholder="Middle Name" id="middle-name" />
+                <input type="text" placeholder="Last Name*" id="last-name" />
+              </div>
+            </div>
+            <div class="gender">
+              <p>Gender*:</p>
+              <label for="gender-male">
+                <input
+                  id="gender-male"
+                  type="radio"
+                  name="gender"
+                  value="male"
+                />
+                <span>Male</span>
+              </label>
+              <label for="gender-female">
+                <input
+                  id="gender-female"
+                  type="radio"
+                  name="gender"
+                  value="female"
+                />
+                <span>Female</span>
+              </label>
+              <p class="gender-error error" id="gender-error"></p>
+            </div>
+            <div class="birth-date">
+              <p class="padding-bottom-half-rem">Date of Birth (in AD)*</p>
+              <p class="birth-date-error error" id="birth-date-error"></p>
+              <div>
+                <input type="date" id="date-display-box" />
+                Age*:
+                <input type="text" id="age-display-box" disabled />
+              </div>
+            </div>
+            <div class="address">
+              <p class="padding-bottom-half-rem">Address*</p>
+              <p
+                class="permanent-address-error error"
+                id="permanent-address-error"
+              ></p>
+              <p
+                class="temporary-address-error error"
+                id="temporary-address-error"
+              ></p>
+              <div>
+                <input
+                  type="text"
+                  placeholder="Permanent Address*"
+                  id="permanent-address"
+                />
+                <input
+                  type="text"
+                  placeholder="Temporary Address*"
+                  id="temporary-address"
+                />
+              </div>
+            </div>
+            <div class="language">
+              <p class="padding-bottom-half-rem">Languages You're Fluent in*</p>
+              <p class="language-error error" id="language-error"></p>
+              <div>
+                <label for="english">
+                  <input
+                    id="english"
+                    type="checkbox"
+                    value="english"
+                    name="language"
+                  />
+                  <span>English</span>
+                </label>
+                <label for="nepali">
+                  <input
+                    type="checkbox"
+                    id="nepali"
+                    value="nepali"
+                    name="language"
+                  />
+                  <span>Nepali</span>
+                </label>
+                <label for="maithili">
+                  <input
+                    type="checkbox"
+                    id="maithili"
+                    value="maithili"
+                    name="language"
+                  />
+                  <span>Maithili</span>
+                </label>
+                <label for="newari">
+                  <input
+                    type="checkbox"
+                    id="newari"
+                    value="newari"
+                    name="language"
+                  />
+                  <span>Nepal Bhasha</span>
+                </label>
+              </div>
+            </div>
+            <div class="about-yourself">
+              <p class="padding-bottom-half-rem">
+                Write About Yourself (in less than 100 words)*:
+              </p>
+              <p
+                class="about-yourself-error error"
+                id="about-yourself-error"
+              ></p>
+              <textarea
+                rows="8"
+                placeholder="Your answer here..."
+                id="about-yourself"
+              ></textarea>
+            </div>
+          </div>
+        </section>
+
+        <!-- Second Page of Form -->
+        <section class="form-immediate-child additional-information-section">
+          <div class="title" id="additional-information-section-button">
+            <p>ADDITIONAL INFORMATION</p>
+            <p class="smaller-font-size">fields with * are mandatory</p>
+          </div>
+          <div class="additional-information-form">
+            <div class="faculty">
+              <p class="padding-bottom-half-rem">
+                Choose Your Subject of Expertise (Tick Multiple if You're
+                Capable)*:
+              </p>
+              <p class="faculty-error error" id="faculty-error"></p>
+              <div>
+                <div>
+                  <label for="mathematics-10">
+                    <input
+                      id="mathematics-10"
+                      type="checkbox"
+                      name="faculty"
+                      value="mathematics-10"
+                    />
+                    <span>Mathematics (9 & 10)</span>
+                  </label>
+                  <label for="computer-10">
+                    <input
+                      id="computer-10"
+                      type="checkbox"
+                      name="faculty"
+                      value="computer-10"
+                    />
+                    <span>Computer Science (9 & 10)</span>
+                  </label>
+                  <label for="science-10">
+                    <input
+                      id="science-10"
+                      type="checkbox"
+                      name="faculty"
+                      value="science-10"
+                    />
+                    <span>Science (9 & 10)</span>
+                  </label>
+                  <label for="optionalmath-10">
+                    <input
+                      id="optionalmath-10"
+                      type="checkbox"
+                      name="faculty"
+                      value="optionalmath-10"
+                    />
+                    <span>Optional Mathematics (9 & 10)</span>
+                  </label>
+                </div>
+                <div>
+                  <label for="mathematics-12">
+                    <input
+                      id="mathematics-12"
+                      type="checkbox"
+                      name="faculty"
+                      value="mathematics-12"
+                    />
+                    <span>Mathematics (11 & 12)</span>
+                  </label>
+                  <label for="bio-science-12">
+                    <input
+                      id="bio-science-12"
+                      type="checkbox"
+                      name="faculty"
+                      value="bio-science-12"
+                    />
+                    <span>Biology (11 & 12)</span>
+                  </label>
+                  <label for="chemistry-12">
+                    <input
+                      id="chemistry-12"
+                      type="checkbox"
+                      name="faculty"
+                      value="chemistry-12"
+                    />
+                    <span>Chemistry (11 & 12)</span>
+                  </label>
+                  <label for="physics-12">
+                    <input
+                      id="physics-12"
+                      type="checkbox"
+                      name="faculty"
+                      value="physics-12"
+                    />
+                    <span>Physics (11 & 12)</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="qualification">
+              <p class="padding-bottom-half-rem">Academic Qualification*</p>
+              <p class="qualification-error error" id="qualification-error"></p>
+              <div>
+                <label for="bachelors">
+                  <input
+                    id="bachelors"
+                    type="radio"
+                    name="qualification"
+                    value="bachelors"
+                  />
+                  <span>Bachelor's Degree</span>
+                </label>
+                <label for="masters">
+                  <input
+                    id="masters"
+                    type="radio"
+                    name="qualification"
+                    value="masters"
+                  />
+                  <span>Master's Degree</span>
+                </label>
+                <label for="phd">
+                  <input
+                    id="phd"
+                    type="radio"
+                    name="qualification"
+                    value="phd"
+                  />
+                  <span>PhD</span>
+                </label>
+              </div>
+            </div>
+            <div class="experience">
+              <p class="padding-bottom-half-rem">
+                Prior Experience (in years)*
+              </p>
+              <p class="experience-error error" id="experience-error"></p>
+              <div>
+                <input
+                  id="experience"
+                  type="number"
+                  placeholder="years of experience"
+                />
+                <span>years</span>
+              </div>
+            </div>
+            <div class="why-hire">
+              <p class="padding-bottom-half-rem">
+                Why should we hire you ? (No more than 100 words)*:
+              </p>
+              <p class="why-hire-error error" id="why-hire-error"></p>
+              <div>
+                <textarea
+                  id="why-hire"
+                  rows="8"
+                  placeholder="Your Answer Here..."
+                ></textarea>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Third Page of From -->
+        <section class="form-immediate-child verify-information-section">
+          <div class="title">
+            <p>VERIFY YOUR INFORMATION</p>
+            <p class="smaller-font-size">
+              Kindly go back to correct any mistakes
+            </p>
+          </div>
+          <div class="information-to-verify" id="information-to-verify"></div>
+          <div class="submit-button-container">
+            <button type="submit" id="submit-button">Submit</button>
+          </div>
+        </section>
+      </form>
+      <!-- Previous and Next Buttons -->
+      <div class="pagination" id="pagination"></div>
+      <br />
+      <div class="buttons-container">
+        <button id="previous-button">Previous</button>
+        <button id="next-button">Next</button>
+      </div>
+    </main>
+  </body>
+</html>
