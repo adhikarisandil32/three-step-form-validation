@@ -2,7 +2,7 @@ const form = document.querySelector("#form-all-pages")
 const formPages = [...form.children]
 
 let currentPageNumber = 1
-let numberOfPages = 3
+let numberOfPages = formPages.length
 
 //to get the languages and faculties that have been ticked
 const tickedLanguages = {}
@@ -658,33 +658,35 @@ document.querySelector("#why-hire").addEventListener("blur", (e) => {
 for (let i = 0; i < numberOfPages; i++) {
   paginationParent = document.querySelector("#pagination")
   paginationChild = document.createElement("div")
+  divInsideChild = document.createElement("div")
+  paginationChild.appendChild(divInsideChild)
   paginationParent.appendChild(paginationChild)
 }
 updatePagination()
 
 function updatePagination() {
   document.querySelector("#pagination").childNodes.forEach((element) => {
-    element.classList.remove("active")
+    element.firstChild.classList.remove("active")
   })
   document
     .querySelector("#pagination")
-    .children[currentPageNumber - 1].classList.add("active")
+    .children[currentPageNumber - 1].firstChild.classList.add("active")
 }
 
 /* Buttons */
 buttonsDisplayStatus()
 
 function buttonsDisplayStatus() {
-  if (currentPageNumber === 1) {
-    document.querySelector("#previous-button").style.display = "none"
+  if (currentPageNumber <= 1) {
+    document.querySelector("#previous-button").disabled = true
   } else {
-    document.querySelector("#previous-button").style.display = "block"
+    document.querySelector("#previous-button").disabled = false
   }
 
-  if (currentPageNumber === numberOfPages) {
-    document.querySelector("#next-button").style.display = "none"
+  if (currentPageNumber >= numberOfPages) {
+    document.querySelector("#next-button").disabled = true
   } else {
-    document.querySelector("#next-button").style.display = "block"
+    document.querySelector("#next-button").disabled = false
   }
 }
 
@@ -752,19 +754,43 @@ function updateAndDisplayAllInformation() {
   document.querySelector("#information-to-verify").innerHTML = updatedHTMLCode
 }
 
+//stack pages at 100% width from each other's left position.
+formPages.forEach((element, idx) => {
+  element.style.left = `${idx * 100}%`
+})
+
+function movePage(direction) {
+  if (direction === "left") {
+    formPages.forEach((element) => {
+      const integerPartOfPercentage = Number(element.style.left.slice(0, -1))
+
+      element.style.left = `${integerPartOfPercentage - 100}%`
+    })
+  } else if (direction === "right") {
+    formPages.forEach((element) => {
+      const integerPartOfPercentage = Number(element.style.left.slice(0, -1))
+
+      element.style.left = `${integerPartOfPercentage + 100}%`
+    })
+  }
+}
+
 document.querySelector("#previous-button").addEventListener("click", () => {
+  if (currentPageNumber <= 1) {
+    return
+  }
   currentPageNumber--
-  formPages[currentPageNumber - 1].scrollIntoView({
-    behavior: "smooth",
-    block: "end",
-    inline: "end",
-  })
+  movePage("right")
 
   buttonsDisplayStatus()
   updatePagination()
 })
 
 document.querySelector("#next-button").addEventListener("click", () => {
+  if (currentPageNumber >= numberOfPages) {
+    return
+  }
+
   const pageWiseErrorDetails = [pageOneErrorDetails, pageTwoErrorDetails]
 
   const errorIn = {}
@@ -782,11 +808,7 @@ document.querySelector("#next-button").addEventListener("click", () => {
   }
 
   currentPageNumber++
-  formPages[currentPageNumber - 1].scrollIntoView({
-    behavior: "smooth",
-    block: "end",
-    inline: "end",
-  })
+  movePage("left")
 
   if (currentPageNumber === numberOfPages) {
     updateAndDisplayAllInformation()
