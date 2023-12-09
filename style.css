@@ -80,12 +80,31 @@ main {
 }
 
 .form-element {
-  display: flex;
-  overflow: hidden;
+  position: relative;
+  height: calc(100vh - 14rem);
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
-
+/* Hide scrollbar for Chrome, Safari and Opera */
+.form-element::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.form-element {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
 .form-element > .form-immediate-child {
-  min-width: 100%;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  transition: left 0.5s linear;
+}
+.form-element > .form-immediate-child > div.title {
+  position: sticky;
+  top: 0;
+  left: 0;
 }
 
 /* First Page of the Form */
@@ -362,12 +381,15 @@ main {
   width: 2rem;
   border: 1px solid black;
   border-radius: 1000px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
-.pagination > div.active {
+.pagination > div > div {
+  height: 100%;
+  width: 0;
   background-color: hsl(239, 100%, 10%);
+}
+.pagination > div > div.active {
+  width: 100%;
+  transition: width 0.5s linear;
 }
 
 /* Buttons */
