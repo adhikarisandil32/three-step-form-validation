@@ -127,6 +127,24 @@ const pageTwoErrorDetails = {
       )
     },
   },
+  emailValidationError: {
+    errorStatus: true,
+    checkerFunction: () => {
+      emailValidationErrorCheck(
+        document.querySelector("#email").value,
+        document.querySelector("#email-error")
+      )
+    },
+  },
+  phoneNumberValidationError: {
+    errorStatus: true,
+    checkerFunction: () => {
+      phoneNumberValidationErrorCheck(
+        document.querySelector("#phone-number").value,
+        document.querySelector("#phone-number-error")
+      )
+    },
+  },
   whyHireValidationError: {
     errorStatus: true,
     checkerFunction: () => {
@@ -218,6 +236,12 @@ const completeFormResults = {
   },
   experience: () => {
     return document.querySelector("#experience").value
+  },
+  email: () => {
+    return document.querySelector("#email").value
+  },
+  phoneNumber: () => {
+    return document.querySelector("#phone-number").value
   },
   whyHire: () => {
     return document.querySelector("#why-hire").value
@@ -544,6 +568,63 @@ document.querySelector("#experience").addEventListener("blur", (e) => {
   )
 })
 
+/* Email Validation */
+function emailValidationErrorCheck(emailValue, elementToShowError) {
+  const pattern =
+    /^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,8}([\.][a-z]{2,4})?$/
+
+  if (!pattern.test(emailValue)) {
+    elementToShowError.innerText = "Please enter a valid email"
+    pageTwoErrorDetails.emailValidationError.errorStatus = true
+  } else {
+    elementToShowError.innerText = ""
+    pageTwoErrorDetails.emailValidationError.errorStatus = false
+  }
+}
+
+document.querySelector("#email").addEventListener("keyup", (e) => {
+  emailValidationErrorCheck(
+    e.target.value,
+    document.querySelector("#email-error")
+  )
+})
+document.querySelector("#email").addEventListener("blur", (e) => {
+  emailValidationErrorCheck(
+    e.target.value,
+    document.querySelector("#email-error")
+  )
+})
+
+/* PhoneNumber Validation */
+function phoneNumberValidationErrorCheck(phoneNumberValue, elementToShowError) {
+  const pattern = /98[0-9]{8}/g
+
+  if (
+    isNaN(Number(phoneNumberValue)) ||
+    phoneNumberValue.length !== 10 ||
+    !pattern.test(phoneNumberValue)
+  ) {
+    elementToShowError.innerText = "Please enter a valid mobile number"
+    pageTwoErrorDetails.phoneNumberValidationError.errorStatus = true
+  } else {
+    elementToShowError.innerText = ""
+    pageTwoErrorDetails.phoneNumberValidationError.errorStatus = false
+  }
+}
+
+document.querySelector("#phone-number").addEventListener("keyup", (e) => {
+  phoneNumberValidationErrorCheck(
+    e.target.value,
+    document.querySelector("#phone-number-error")
+  )
+})
+document.querySelector("#phone-number").addEventListener("blur", (e) => {
+  phoneNumberValidationErrorCheck(
+    e.target.value,
+    document.querySelector("#phone-number-error")
+  )
+})
+
 /* "Why Hire" Validation */
 function whyHireValidationErrorCheck(whyHire, elementToShowError) {
   const numberOfWords = whyHire.split(" ").length
@@ -652,6 +733,14 @@ function updateAndDisplayAllInformation() {
     <div>
       <span class="font-bold">Experience: </span>
       <span>${completeFormResults.experience()}</span>
+    </div>
+    <div>
+      <span class="font-bold">Email: </span>
+      <span>${completeFormResults.email()}</span>
+    </div>
+    <div>
+      <span class="font-bold">Mobile Number: </span>
+      <span>${completeFormResults.phoneNumber()}</span>
     </div>
     <div>
       <span class="font-bold">Why Should We Hire You ?</span>

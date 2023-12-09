@@ -25,7 +25,10 @@
       <h2 class="h2-student-registration-form">TEACHER'S VACANCY FORM</h2>
       <form action="" class="form-element" id="form-all-pages">
         <!-- First Page of Form -->
-        <section class="form-immediate-child basic-information-section">
+        <section
+          style="display: block"
+          class="form-immediate-child basic-information-section"
+        >
           <div class="title" id="basic-information-section-button">
             <p>BASIC INFORMATION</p>
             <p class="smaller-font-size">fields with * are mandatory</p>
@@ -33,13 +36,27 @@
           <div class="basic-information-form">
             <div class="full-name">
               <p class="padding-bottom-half-rem">Full Name*</p>
-              <p class="first-name-error error" id="first-name-error"></p>
-              <p class="middle-name-error error" id="middle-name-error"></p>
-              <p class="last-name-error error" id="last-name-error"></p>
-              <div>
-                <input type="text" placeholder="First Name*" id="first-name" />
-                <input type="text" placeholder="Middle Name" id="middle-name" />
-                <input type="text" placeholder="Last Name*" id="last-name" />
+              <div class="full-name-field-container">
+                <div>
+                  <input
+                    type="text"
+                    placeholder="First Name*"
+                    id="first-name"
+                  />
+                  <p class="first-name-error error" id="first-name-error"></p>
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Middle Name"
+                    id="middle-name"
+                  />
+                  <p class="middle-name-error error" id="middle-name-error"></p>
+                </div>
+                <div>
+                  <input type="text" placeholder="Last Name*" id="last-name" />
+                  <p class="last-name-error error" id="last-name-error"></p>
+                </div>
               </div>
             </div>
             <div class="gender">
@@ -66,39 +83,42 @@
             </div>
             <div class="birth-date">
               <p class="padding-bottom-half-rem">Date of Birth (in AD)*</p>
-              <p class="birth-date-error error" id="birth-date-error"></p>
               <div>
                 <input type="date" id="date-display-box" />
                 Age*:
                 <input type="text" id="age-display-box" disabled />
               </div>
+              <p class="birth-date-error error" id="birth-date-error"></p>
             </div>
             <div class="address">
               <p class="padding-bottom-half-rem">Address*</p>
-              <p
-                class="permanent-address-error error"
-                id="permanent-address-error"
-              ></p>
-              <p
-                class="temporary-address-error error"
-                id="temporary-address-error"
-              ></p>
-              <div>
-                <input
-                  type="text"
-                  placeholder="Permanent Address*"
-                  id="permanent-address"
-                />
-                <input
-                  type="text"
-                  placeholder="Temporary Address*"
-                  id="temporary-address"
-                />
+              <div class="address-field-container">
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Permanent Address*"
+                    id="permanent-address"
+                  />
+                  <p
+                    class="permanent-address-error error"
+                    id="permanent-address-error"
+                  ></p>
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Temporary Address*"
+                    id="temporary-address"
+                  />
+                  <p
+                    class="temporary-address-error error"
+                    id="temporary-address-error"
+                  ></p>
+                </div>
               </div>
             </div>
             <div class="language">
               <p class="padding-bottom-half-rem">Languages You're Fluent in*</p>
-              <p class="language-error error" id="language-error"></p>
               <div>
                 <label for="english">
                   <input
@@ -137,6 +157,7 @@
                   <span>Nepal Bhasha</span>
                 </label>
               </div>
+              <p class="language-error error" id="language-error"></p>
             </div>
             <div class="about-yourself">
               <p class="padding-bottom-half-rem">
@@ -167,7 +188,6 @@
                 Choose Your Subject of Expertise (Tick Multiple if You're
                 Capable)*:
               </p>
-              <p class="faculty-error error" id="faculty-error"></p>
               <div>
                 <div>
                   <label for="mathematics-10">
@@ -246,10 +266,10 @@
                   </label>
                 </div>
               </div>
+              <p class="faculty-error error" id="faculty-error"></p>
             </div>
             <div class="qualification">
               <p class="padding-bottom-half-rem">Academic Qualification*</p>
-              <p class="qualification-error error" id="qualification-error"></p>
               <div>
                 <label for="bachelors">
                   <input
@@ -279,12 +299,12 @@
                   <span>PhD</span>
                 </label>
               </div>
+              <p class="qualification-error error" id="qualification-error"></p>
             </div>
             <div class="experience">
               <p class="padding-bottom-half-rem">
                 Prior Experience (in years)*
               </p>
-              <p class="experience-error error" id="experience-error"></p>
               <div>
                 <input
                   id="experience"
@@ -292,6 +312,31 @@
                   placeholder="years of experience"
                 />
                 <span>years</span>
+              </div>
+              <p class="experience-error error" id="experience-error"></p>
+            </div>
+            <div class="email-phone-container">
+              <div class="email">
+                <p class="padding-bottom-half-rem">Email*</p>
+                <div>
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="e.g. username@email.com"
+                  />
+                </div>
+                <p class="email-error error" id="email-error"></p>
+              </div>
+              <div class="phone-number">
+                <p class="padding-bottom-half-rem">Mobile Number*</p>
+                <div>
+                  <input
+                    type="text"
+                    id="phone-number"
+                    placeholder="e.g. 98xxxxxxxx"
+                  />
+                </div>
+                <p class="phone-number-error error" id="phone-number-error"></p>
               </div>
             </div>
             <div class="why-hire">

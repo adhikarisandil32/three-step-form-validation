@@ -111,7 +111,14 @@ main {
   display: flex;
   gap: 0.5rem;
 }
-.basic-information-form > .full-name > div > input {
+.basic-information-form > .full-name > div.full-name-field-container > div {
+  width: 100%;
+}
+.basic-information-form
+  > .full-name
+  > div.full-name-field-container
+  > div
+  > input {
   font-size: 1rem;
   padding: 0.5rem;
   border-radius: 0.25rem;
@@ -157,11 +164,14 @@ main {
   text-align: center;
 }
 
-.basic-information-form > .address > div {
+.basic-information-form > .address > div.address-field-container {
   display: flex;
   gap: 0.5rem;
 }
-.basic-information-form > .address > div > input {
+.basic-information-form > .address > div.address-field-container > div {
+  width: 100%;
+}
+.basic-information-form > .address > div.address-field-container > div > input {
   font-size: 1rem;
   padding: 0.5rem;
   border-radius: 0.25rem;
@@ -169,7 +179,11 @@ main {
   display: block;
   width: 100%;
 }
-.basic-information-form > .address > div > input:hover {
+.basic-information-form
+  > .address
+  > div.address-field-container
+  > div
+  > input:hover {
   outline: auto;
 }
 
@@ -244,6 +258,50 @@ main {
   border: 1px solid black;
 }
 .additional-information-form > .experience > div > input:hover {
+  outline: auto;
+}
+
+.additional-information-form > .email-phone-container {
+  display: flex;
+  gap: 0.5rem;
+}
+.additional-information-form > .email-phone-container > div {
+  width: 100%;
+}
+.additional-information-form
+  > .email-phone-container
+  > div.email
+  > div
+  > input {
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: 100%;
+  border-radius: 0.25rem;
+  border: 1px solid black;
+}
+.additional-information-form
+  > .email-phone-container
+  > .email
+  > div
+  > input:hover {
+  outline: auto;
+}
+.additional-information-form
+  > .email-phone-container
+  > .phone-number
+  > div
+  > input {
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: 100%;
+  border-radius: 0.25rem;
+  border: 1px solid black;
+}
+.additional-information-form
+  > .email-phone-container
+  > .phone-number
+  > div
+  > input:hover {
   outline: auto;
 }
 
@@ -357,7 +415,12 @@ main {
     gap: 0.5rem;
     flex-direction: column;
   }
+
   .basic-information-form > .faculty > div {
+    flex-direction: column;
+  }
+
+  .additional-information-form > .email-phone-container {
     flex-direction: column;
   }
 }
@@ -369,6 +432,9 @@ main {
   }
   .college-info-container {
     text-align: center;
+  }
+  .additional-information-form > .faculty > div {
+    flex-direction: column;
   }
 }
 
