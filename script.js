@@ -734,7 +734,7 @@ function updateAndDisplayAllInformation() {
     </div>
     <div>
       <span class="font-bold">Experience: </span>
-      <span>${completeFormResults.experience()}</span>
+      <span>${completeFormResults.experience()} years</span>
     </div>
     <div>
       <span class="font-bold">Email: </span>
